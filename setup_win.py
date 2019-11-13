@@ -4,7 +4,7 @@ import os
 import subprocess
 
 import setuptools
-from setuptools import setup, find_packages
+from setuptools import setup
 from setuptools.command.build_py import build_py
 
 
@@ -21,7 +21,7 @@ def build_extensions():
     we just need to tell setuptools that these are "data files" that we wish to
     copy when installing, along with all *.py files.
     """
-    subprocess.run(r"make -C library -f Makefile_win.mak && make -C interface -f Makefile_win.mak", shell=True, check=True)
+    subprocess.run(r"make -C library && make -C interface", shell=True, check=True)
 
 
 def make_cmd_class(base):
@@ -45,8 +45,8 @@ def make_cmd_class(base):
     return CmdClass
 
 
-setuptools.setup(
-    name='python_solution',
+setup(
+    name='python_solution_pkg',
     version='0.1.0',
     description='example',
     long_description=long_description,
@@ -59,7 +59,8 @@ setuptools.setup(
     install_requires=open('requirements.txt').read().splitlines(),
     setup_requires=['numpy'],
     python_requires='>=3',
-    package_data={'python_solution': ['python_solution*.pyd']},    
+    package_data={'python_solution_pkg': ['python_solution*.pyd']},
+    include_package_data=True,
     cmdclass={
         'build_py': make_cmd_class(build_py),
         },

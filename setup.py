@@ -4,7 +4,7 @@ import os
 import subprocess
 
 import setuptools
-from numpy.distutils.core import Extension, setup
+from setuptools import setup
 from setuptools.command.build_py import build_py
 
 
@@ -44,8 +44,6 @@ def make_cmd_class(base):
             super().run()
     return CmdClass
 
-python_solution = Extension(name = 'python_solution',
-                 sources = ['interface/interface.pyf', 'interface/interface.f90'])
 
 setup(
     name='python_solution_pkg',
@@ -62,9 +60,9 @@ setup(
     setup_requires=['numpy'],
     python_requires='>=3',
     package_data={'python_solution_pkg': ['python_solution*.so']},
+    include_package_data=True,
     cmdclass={
         'build_py': make_cmd_class(build_py),
         },
-    ext_modules = [python_solution]
 )
 
