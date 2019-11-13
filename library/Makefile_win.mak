@@ -3,4 +3,3 @@ FFLAGS =  -g -fbacktrace -fcheck=array-temps -fcheck=bounds -fcheck=do -fcheck=m
 
 all:
 	$(FC) $(FFLAGS) -fPIC -fno-second-underscore -o library.o -c library.f90
-

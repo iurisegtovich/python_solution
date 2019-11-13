@@ -3,5 +3,3 @@ FFLAGS =  -g -fbacktrace -fcheck=array-temps -fcheck=bounds -fcheck=do -fcheck=m
 
 all:
 	$(FC) $(FFLAGS) -fPIC -fno-second-underscore -o library.o -c library.f90
-#	$(FC) $(FFLAGS) -shared -o library.so library.o $(python3-config --ldflags)
-

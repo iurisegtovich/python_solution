@@ -1,0 +1,39 @@
+# linux
+
+> open terminal here
+
+> type
+
+python
+
+> type
+
+import python_solution_pkg
+
+> exit
+
+exit()
+
+> type 
+
+python test.py
+
+# windows
+
+> open terminal here
+
+> type
+
+winpty python
+
+> type
+
+import python_solution_pkg
+
+> exit
+
+exit()
+
+> type 
+
+python test.py
